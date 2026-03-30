@@ -1,0 +1,26 @@
+name: Explore GitHub Actions
+
+on: [push]
+
+jobs:
+  explore:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Print event info
+        run: echo "Triggered by ${{ github.event_name }} event"
+
+      - name: Print branch name
+        run: echo "Branch is ${{ github.ref }}"
+
+      - name: Print repository name
+        run: echo "Repository is ${{ github.repository }}"
+
+      - name: List files
+        run: ls -la
+
+      - name: Job status
+        run: echo "Job status is ${{ job.status }}"
